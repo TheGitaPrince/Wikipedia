@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-import  Container from "../components/container/container.jsx";
 import AddPost from "./AddPost.jsx"
 import service from "../appwrite/config";
 import { useNavigate,  useParams } from 'react-router-dom';

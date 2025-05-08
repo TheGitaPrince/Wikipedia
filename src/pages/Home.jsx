@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Container from "../components/container/container.jsx";
 import PostCard from "../components/PostCard.jsx";
 import service from "../appwrite/config";
 import Loading from "../components/Loading.jsx";

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux"; 
-import Container from "../components/container/container.jsx";
 import PostCard from "../components/PostCard.jsx";
 import service from "../appwrite/config";
 import { Query } from "appwrite";
