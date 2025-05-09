@@ -6,15 +6,17 @@ import { useForm } from "react-hook-form";
 import authService from "../appwrite/auth.js"
 import { login } from "../store/authSlice.js";
 import { useDispatch } from "react-redux";
+import Loading from "./Loading.jsx";
 
 function Signup() {
-
+     const [loading, setLoading] = useState(false);
      const navigate = useNavigate()
      const [error,setError] = useState("")
      const {register,handleSubmit, formState: { errors }} = useForm()
      const dispatch = useDispatch()
 
      const create = async (data) => {
+        setLoading(true)
         setError("")
         try {
             const userData = await authService.createAccount(data)
@@ -26,6 +28,8 @@ function Signup() {
         } catch (error) {
           const message = error.response?.message || error.message || "Please enter a valid details";
           setError(message);
+        } finally{
+           setLoading(false);
         }
      }
   return (
@@ -75,9 +79,9 @@ function Signup() {
                   />
                   <Button
                    type="submit"
-                   className="w-full"
+                   className="w-full flex justify-center hover:bg-blue-500"
                   >
-                    Signup
+                    {loading? <Loading/> : "Signup"}
                   </Button>
                </div>
 

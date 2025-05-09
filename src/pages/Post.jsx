@@ -3,22 +3,25 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import service from "../appwrite/config";
 import parse from "html-react-parser";
 import { useSelector } from "react-redux";
-
+import Loading from "../components/Loading.jsx";
 
 function Post() {
   const [post, setPost] = useState(null);
   const { slug } = useParams();
   const navigate = useNavigate();
-
+  const [loading, setLoading] = useState(false);
   const userData = useSelector((state) => state.auth.userData);
   const isAuthor = post && userData ? post.userId === userData.$id : false;
 
   useEffect(() => {
     if (slug) {
-      service.getPost(slug).then((post) => {
-        if (post) setPost(post);
-        else navigate("/");
-      });
+      setLoading(true);
+      service.getPost(slug)
+        .then((post) => {
+          if (post) setPost(post);
+          else navigate("/");
+        })
+        .finally(() => setLoading(false));
     } else navigate("/");
   }, [slug, navigate]);
 
@@ -33,10 +36,14 @@ function Post() {
 
   const imageUrl = post?.featuredImage? service.getFileView(post?.featuredImage): "";
 
+  if (loading) {
+    return <div className="flex justify-center py-10 text-blue-600"><Loading/></div>;
+  }
+  
   return post ? (
     <div className="max-w-6xl mx-auto px-4 md:py-10 py-5 flex flex-col md:flex-row gap-8">
       <div className="flex flex-col items-center gap-5 md:w-1/3">
-        <div className="w-full aspect-[4/3] bg-white rounded-xl shadow-lg overflow-hidden">
+        <div className="w-full aspect-[4/3] bg-white rounded-lg shadow overflow-hidden">
           <img
             src={imageUrl}
             alt={post.title}

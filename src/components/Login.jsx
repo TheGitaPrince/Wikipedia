@@ -6,14 +6,17 @@ import  Button  from "./Button.jsx";
 import  Input  from "./Input.jsx";
 import authService from "../appwrite/auth.js"
 import { useForm } from "react-hook-form";
+import Loading from "./Loading.jsx";
 
 function Login() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const [loading, setLoading] = useState(false);
   const {register, handleSubmit , formState: { errors }} = useForm()
   const [error,setError] = useState("")
 
   const login = async (data) => {
+        setLoading(true);
         setError("")
       try {
         const session = await authService.login(data)
@@ -25,6 +28,8 @@ function Login() {
       } catch (error) {
         const message = error.response?.message || error.message || "Login failed";
         setError(message);
+      } finally {
+        setLoading(false);
       }
   }
   return (
@@ -68,9 +73,9 @@ function Login() {
                   {errors.password && ( <p className="text-red-500 text-xs mt-1"> {errors.password.message} </p> )}
                   <Button
                   type="submit"
-                  className="w-full  hover:bg-blue-500"
+                  className="w-full flex justify-center hover:bg-blue-500"
                   >
-                    Sign in 
+                    {loading? <Loading/> : "Signin"}
                   </Button>
                </div>
           </form>

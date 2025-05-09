@@ -8,11 +8,12 @@ import appwriteService from "../appwrite/config.js";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { MdCloudUpload } from "react-icons/md";
-
+import Loading from "../components/Loading.jsx";
 
 function AddPost({ post }) {
     const [selectedImage, setSelectedImage] = useState(null);
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
     const userData = useSelector((state) => state.auth.userData );
     const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
         defaultValues: {
@@ -55,9 +56,10 @@ function AddPost({ post }) {
     }
 
     const submit = async (data) => {
+        setLoading(true);
         try {
             if (post) {
-                const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null;
+                const file = data.image?.[0] ? await appwriteService.uploadFile(data.image[0]) : null;
     
                 if (file && post.featuredImage){ appwriteService.deleteFile(post.featuredImage) }
     
@@ -82,6 +84,8 @@ function AddPost({ post }) {
             } 
         } catch (error) {
             console.error("Post submit error:", error);
+        }finally {
+            setLoading(false);
         }
     };
 
@@ -137,8 +141,8 @@ function AddPost({ post }) {
                  control={control} 
                  defaultValue={getValues("content")}
                 />
-                <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
-                    {post ? "Update" : "Submit"}
+                <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full flex justify-center">
+                  {loading? <Loading/> :  post ? "Update" : "Submit"}
                 </Button>
         </form>
       </section>

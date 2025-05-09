@@ -17,7 +17,7 @@ function PostCard({
   return (
     <Link to = {url}>
         <div className="bg-white h-72 w-80 shadow flex flex-col gap-2 p-2 rounded">
-           <h2 className="text-xl font-medium text-gray-800 line-clamp-2">{ title }</h2>
+           <h2 className="text-xl font-medium text-gray-800 ">{ title }</h2>
            <div className="h-48 w-72 rounded mx-auto bg-gray-100">
               <img 
               className="w-full h-full object-contain rounded"
