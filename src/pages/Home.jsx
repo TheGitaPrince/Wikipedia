@@ -35,9 +35,9 @@ function Home() {
   }
 
   return (
-    <div className="w-full min-h-[87vh] px-8 md:py-5 py-3">
+    <div className="w-full min-h-[87vh] px-14 md:py-5 py-3">
         <h2 className="text-xl font-semibold mb-2">POSTS</h2>
-        <div className="flex flex-wrap md:gap-3 gap-5 items-center">
+        <div className="flex flex-wrap md:justify-start justify-center md:gap-3 gap-5 items-center">
           {posts.length > 0 ? (
             posts.map((post) => (
               <div key={post.$id}>
