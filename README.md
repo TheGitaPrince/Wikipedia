@@ -2,8 +2,7 @@
 
 A mini Wikipedia-based platform built with React and Appwrite, allowing users to interact with wiki-like content. The app features rich text editing, dynamic content rendering, and user authentication.
 
-[Live Demo on Vercel](https://wikipedia-tan.vercel.app/)  
-[GitHub Repository](https://github.com/TheGitaPrince/Wikipedia)
+[Live Demo on Vercel](https://wikipedia-tan.vercel.app/) 
 
 ---
 
@@ -11,10 +10,11 @@ A mini Wikipedia-based platform built with React and Appwrite, allowing users to
 
 ## Screenshot
 
-![App Screenshot](public/home.png)
-![App Screenshot](public/home.png)
-![App Screenshot](public/home.png)
-![App Screenshot](public/home.png)
+![home](public/home.png)
+![signup](public/signup.png)
+![edit](public/edit.png)
+![mobile](public/mobile.png)
+![addpost](public/addpost.png)
 
 ---
 

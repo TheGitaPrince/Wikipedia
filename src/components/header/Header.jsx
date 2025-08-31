@@ -47,7 +47,7 @@ function Header() {
        ]
 
   return (
-     <header className="md:h-20 h-20 w-full bg-blue-950/80 text-blue-50/50 sticky z-10 top-0 shadow">
+     <header className="md:h-20 h-20 w-full bg-blue-950/80 text-blue-100/100 sticky z-10 top-0 shadow">
         <nav className="flex items-center justify-between h-full w-full md:px-10 px-5 ">
               <Link to="/" className="text-blue-100/100 flex justify-center items-center flex-col" >
                   <SiWikipedia className="size-7 md:size-10"/>
