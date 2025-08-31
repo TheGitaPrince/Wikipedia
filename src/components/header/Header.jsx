@@ -5,7 +5,7 @@ import authService from '../../appwrite/auth.js'
 import { logout } from "../../store/authSlice.js";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import logo from "../../../public/images.png";
+import { SiWikipedia } from "react-icons/si";
 
 function Header() {
        const authStatus = useSelector((state)=> state.auth.status)
@@ -47,19 +47,18 @@ function Header() {
        ]
 
   return (
-     <header className="md:h-20 h-16 w-full bg-white text-black sticky z-10 top-0 shadow">
-        <nav className="flex items-center justify-between h-full w-full md:px-8 px-5 ">
-              <Link to="/" className="md:h-10 h-6" >
-                  <img 
-                  className="w-full h-full object-contain"
-                  src={logo} alt="logo" />
+     <header className="md:h-20 h-20 w-full bg-blue-950/80 text-blue-50/50 sticky z-10 top-0 shadow">
+        <nav className="flex items-center justify-between h-full w-full md:px-10 px-5 ">
+              <Link to="/" className="text-blue-100/100 flex justify-center items-center flex-col" >
+                  <SiWikipedia className="size-7 md:size-10"/>
+                  <span className="font-medium">wikipedia</span>
               </Link>
               <ul className='flex ml-auto'>
                     {
                       navItems.map((item)=>item.active?(
                         <li key={item.name}>
                              <button
-                             className='inline-bock md:px-6 px-3 md:py-2 py-1 md:text-lg  duration-300 hover:bg-blue-100 rounded-full'
+                             className='inline-bock md:px-6 px-2 md:py-2 py-1 md:text-lg font-serif  duration-300 hover:bg-blue-950/50 rounded-full'
                              onClick={()=>navigate(item.slug)}
                              >
                                {item.name} 
@@ -70,7 +69,7 @@ function Header() {
                     {
                       authStatus && (
                         <button
-                        className="inline-bock md:px-6 px-3 md:py-2 py-1 md:text-lg duration-300 hover:bg-blue-100 rounded-full"
+                        className="inline-bock md:px-6 px-3 md:py-2 py-1 md:text-lg duration-300 hover:bg-blue-950/50 rounded-full"
                         onClick ={ logoutHandler }
                         >
                             Logout

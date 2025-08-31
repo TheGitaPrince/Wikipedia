@@ -3,7 +3,7 @@ import  SignupComponent from "../components/Signup.jsx";
 
 function Signup() {
   return (
-    <div className="py-8">
+    <div className="flex justify-center text-center min-h-[89vh]">
         <SignupComponent/>
     </div>
   )

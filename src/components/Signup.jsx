@@ -34,15 +34,15 @@ function Signup() {
      }
   return (
     <div className="flex items-center justify-center">
-        <div  className={`mx-auto w-full max-w-sm  border border-neutral-700 rounded-xl p-6`}>
-           <h2 className="text-center text-2xl font-bold leading-tight">
+        <div  className={`mx-auto w-full max-w-sm shadow-xl rounded-xl p-8 bg-white/60`}>
+           <h2 className="text-center text-2xl font-bold font-serif">
                    Sign up to create account
            </h2>
-           <p className="mb-5 text-center text-base ">
+           <p className="md:mb-8 mb-5 text-center text-base font-semibold">
               Already have an account?&nbsp;
               <Link
               to = "/login"
-              className="hover:underline hover:text-blue-600"
+              className="hover:underline hover:text-blue-950/100"
               >
                  Sign In
               </Link>
@@ -79,9 +79,9 @@ function Signup() {
                   />
                   <Button
                    type="submit"
-                   className="w-full flex justify-center hover:bg-blue-500"
+                   className="w-full flex justify-center"
                   >
-                    {loading? <Loading/> : "Signup"}
+                    {loading? <Loading/> : "Sign up"}
                   </Button>
                </div>
 

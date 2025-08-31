@@ -3,7 +3,7 @@ import  LoginComponent  from "../components/Login.jsx";
 
 function Login() {
   return (
-    <div className="py-8">
+    <div className="flex justify-center text-center min-h-[89vh]">
        <LoginComponent/>
     </div>
   )

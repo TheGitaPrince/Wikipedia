@@ -14,7 +14,7 @@ const Input = React.forwardRef(
                     htmlFor={id}
                     className ='inline-block mb-1 pl-1'> {label} </label>}
                   <input
-                   className = {`px-3 py-2 rounded-lg hover:border-neutral-400 transition-all duration-300 bg-transparent  outline-none border shadow-lg border-neutral-700 w-full ${className}`}
+                   className = {`w-full pl-3 py-2 rounded-lg text-neutral-700 bg-blue-100 outline-none placeholder:text-neutral-500 focus:ring-1 focus:ring-blue-950/100 ${className}`}
                    type= {type}
                    ref = {ref}
                    {...props} 
